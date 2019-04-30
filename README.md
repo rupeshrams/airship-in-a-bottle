@@ -28,6 +28,15 @@ Desktop/Workstation/Fusion, Parallels, and Hyper-V):
 curl -O https://git.airshipit.org/cgit/airship-in-a-bottle/plain/Vagrantfile
 vagrant up
 ```
+Code Changes Required,
+
+Openstack Namespaces deployment will fail as nova reference will not found in deployment,reference need to update in deployment_files.yaml as follows,
+
+      nova:
+       type: git
+       location: https://git.openstack.org/openstack/openstack-helm
+       subpath: nova
+       reference: 2a03fd65bf0ab33fdc7ceffd9a4c331b25629b23
 
 ## Components
 
@@ -54,3 +63,4 @@ The orchestrator for physical asset provisioning (e.g. server deployment).
 ### Deckhand
 
 YAML design data manager.
+
